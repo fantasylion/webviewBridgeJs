@@ -1,0 +1,2 @@
+# webviewBridgeJs
+配合WebViewJavascriptBridge，用于桥接web页面js调用app函数
