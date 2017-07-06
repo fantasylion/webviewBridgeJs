@@ -1,7 +1,7 @@
 # webviewBridgeJs
 配合WebViewJavascriptBridge，用于桥接web页面js调用app函数
 
-这个是基于#WebViewJavascriptBridge#
+这个是基于`WebViewJavascriptBridge`
 IOS:https://github.com/marcuswestin/WebViewJavascriptBridge
 Android:https://github.com/gzsll/WebViewJavascriptBridge
 
