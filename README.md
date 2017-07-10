@@ -26,7 +26,7 @@ Android:https://github.com/gzsll/WebViewJavascriptBridge
 
 ## 引用
 
-_scriptBridgenative.js_文件需要位于_app-bridge.js_文件前进行引用
+scriptBridgenative.js文件需要位于app-bridge.js文件前进行引用
 
 ## 函数调用方式
 ```
