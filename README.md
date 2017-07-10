@@ -24,6 +24,9 @@ Android:https://github.com/gzsll/WebViewJavascriptBridge
 
 **thirdPartShare** _Function(content, url, img, title, callBack)_ : app分享，通过 app函数名"thirdPartShare"调用app函数
 
+## 引用
+
+_scriptBridgenative.js_文件需要位于_app-bridge.js_文件前进行引用
 
 ## 函数调用方式
 ```
