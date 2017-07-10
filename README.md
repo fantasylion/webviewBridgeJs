@@ -12,9 +12,9 @@ Android:https://github.com/gzsll/WebViewJavascriptBridge
 
 **callApp** - _Function( appFunName, param, callBack )_: 直接通过`WebViewJavascriptBridge`调用app
 
-**userAgentAndroid** _string_ 默认值: `APP-ANDROID`，app的user agent中需要包含这个默认值
+**userAgentAndroid** _string_: 默认值 `APP-ANDROID`，app的user agent中需要包含这个默认值
 
-**userAgentIos** _string_ 默认值: `APP-IOS`，app的user agent中需要包含这个默认值
+**userAgentIos** _string_: 默认值 `APP-IOS`，app的user agent中需要包含这个默认值
 
 **bedebug** _string_ : 默认为true，值为true时，函数`debug`将会`alert`出`messge`，用于调试时使用
 
