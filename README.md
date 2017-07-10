@@ -1,7 +1,7 @@
 ## webviewBridgeJs
-配合WebViewJavascriptBridge，用于桥接web页面js调用app函数
+配合`WebViewJavascriptBridge`，用于桥接web页面js调用app函数
 
-这个是基于`WebViewJavascriptBridge` 
+基于`WebViewJavascriptBridge` 调用app函数，在APP环境需要依赖以下开源项目
 
 IOS:https://github.com/marcuswestin/WebViewJavascriptBridge
 Android:https://github.com/gzsll/WebViewJavascriptBridge
@@ -37,93 +37,93 @@ appBridge.callAPPFunction( appFunName, param, callBack );
 
 ## Demo 
 
-# 内部扩展，以下代码位于app-bridge.js中
+### 内部扩展，以下代码位于app-bridge.js中
 ```
-			/**
-			 * 分享格式
-			 * 	{ 
-			 *  "title":"我是标题",
-			 *  "content":"我是内容",
-			 *  "picURL":"http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg",
-			 *  "clickURL":"http://www.baidu.com"
-			 * }
-			 */
-			thirdPartShare: function(content, url, img, title, callBack) {
-				var _this = this;
-				var shareContent = _this.buildShareContent(content, url, img, title);
-				_this.debug("分享开始格式："+JSON.stringify(shareContent));
-				_this.callAPPFunction( "thirdPartShare", shareContent, function(responseData) {
-					_this.debug("分享回调开始");
-					
-					if ( !callBack ) {
-						_this.debug("没有回调函数");
-						return;
-					}
-					
-					_this.debug(responseData.shareResult);
-					_this.debug(responseData);
-					
-					if ( callBack.complete ) {
-						callBack.complete.call(this, responseData);
-					}
-					
-					if ( responseData.shareResult == "true" && callBack.success ) {
-						callBack.success.call(this, responseData);
-					}
-					
-					if ( responseData.shareResult == "false" && callBack.fail ) {
-						callBack.fail.call(this, responseData);
-					}
-				} );
-			},
-			/**
-			 * 分享的默认值
-			 */
-			sharedDefault: {
-				img:"",
-				title:"",
-				url:"",
-				content:"",
-			},
+/**
+ * 分享格式
+ * 	{ 
+ *  "title":"我是标题",
+ *  "content":"我是内容",
+ *  "picURL":"http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg",
+ *  "clickURL":"http://www.baidu.com"
+ * }
+ */
+thirdPartShare: function(content, url, img, title, callBack) {
+	var _this = this;
+	var shareContent = _this.buildShareContent(content, url, img, title);
+	_this.debug("分享开始格式："+JSON.stringify(shareContent));
+	_this.callAPPFunction( "thirdPartShare", shareContent, function(responseData) {
+		_this.debug("分享回调开始");
+		
+		if ( !callBack ) {
+			_this.debug("没有回调函数");
+			return;
+		}
+		
+		_this.debug(responseData.shareResult);
+		_this.debug(responseData);
+		
+		if ( callBack.complete ) {
+			callBack.complete.call(this, responseData);
+		}
+		
+		if ( responseData.shareResult == "true" && callBack.success ) {
+			callBack.success.call(this, responseData);
+		}
+		
+		if ( responseData.shareResult == "false" && callBack.fail ) {
+			callBack.fail.call(this, responseData);
+		}
+	} );
+},
+/**
+ * 分享的默认值
+ */
+sharedDefault: {
+	img:"",
+	title:"",
+	url:"",
+	content:"",
+},
 
-			/**
-			 * 对传入的参数进行验证，如果参数值不对会设置上默认的值
-			 * @param content
-			 * @param url
-			 * @param img
-			 * @param title
-			 * @returns {___anonymous4302_4403}
-			 */
-			buildShareContent: function( content, url, img, title ) {
-				var _this = this;
-				// 如果参数不对 设置上默认值
-				if ( !img ) {
-					img = _this.sharedDefault["img"];
-				}
-				if ( !url ) {
-					url = _this.sharedDefault["url"];
-				}
-				if ( !title ) {
-					title = _this.sharedDefault["title"];
-				}
-				if ( !content ) {
-					content = _this.sharedDefault["content"];
-				}
-				return {
-						"title":title,
-						"content": content,
-						"picURL": img,
-						"clickURL": url
-				}
-				
-			}
+/**
+ * 对传入的参数进行验证，如果参数值不对会设置上默认的值
+ * @param content
+ * @param url
+ * @param img
+ * @param title
+ * @returns {___anonymous4302_4403}
+ */
+buildShareContent: function( content, url, img, title ) {
+	var _this = this;
+	// 如果参数不对 设置上默认值
+	if ( !img ) {
+		img = _this.sharedDefault["img"];
+	}
+	if ( !url ) {
+		url = _this.sharedDefault["url"];
+	}
+	if ( !title ) {
+		title = _this.sharedDefault["title"];
+	}
+	if ( !content ) {
+		content = _this.sharedDefault["content"];
+	}
+	return {
+			"title":title,
+			"content": content,
+			"picURL": img,
+			"clickURL": url
+	}
+	
+}
 ```
 
-# 外部调用
+### 外部调用
 ```
-			var title = "我是标题",
-			var content = "我是内容",
-			var img ="http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg",
-			var url = http://www.baidu.com"
-			appBridge.thirdPartShare: function(content, url, img, title, callBack);
+var title = "我是标题",
+var content = "我是内容",
+var img ="http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg",
+var url = http://www.baidu.com"
+appBridge.thirdPartShare: function(content, url, img, title, callBack);
 ```
