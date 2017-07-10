@@ -126,9 +126,9 @@ buildShareContent: function( content, url, img, title ) {
 
 ### 外部调用
 ```
-var title = "我是标题",
-var content = "我是内容",
-var img ="http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg",
-var url = http://www.baidu.com"
+var title = "我是标题";
+var content = "我是内容";
+var img ="http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg";
+var url = http://www.baidu.com";
 appBridge.thirdPartShare(content, url, img, title, null);
 ```
