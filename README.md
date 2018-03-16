@@ -31,7 +31,7 @@ Android:https://github.com/gzsll/WebViewJavascriptBridge
 scriptBridgenative.js文件需要位于app-bridge.js文件前进行引用
 
 ## 函数调用方式
-```
+```JavaScript
 格式：appBridge.<函数名>(<参数>)
 
 // appFunName： 为app的函数名，param： 调用app函数需要的参数，callBack：app函数执行完后调用的js函数
@@ -43,7 +43,7 @@ appBridge.callAPPFunction( appFunName, param, callBack );
 ## Demo 
 
 ### 内部扩展，以下代码位于app-bridge.js中
-```
+```JavaScript
 /**
  * 分享格式
  * 	{ 
@@ -125,7 +125,7 @@ buildShareContent: function( content, url, img, title ) {
 ```
 
 ### 外部调用
-```
+```JavaScript
 var title = "我是标题";
 var content = "我是内容";
 var img ="http://bpic.588ku.com/back_pic/04/71/07/88589a6c0791964.jpg";
